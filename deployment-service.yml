@@ -465,7 +465,7 @@ spec:
               - ALL
           privileged: false
           readOnlyRootFilesystem: true
-        image: avinash1836/microservices:loadgenerator
+        image: avinash1836/microservices:loadgeneratorservice
         env:
         - name: FRONTEND_ADDR
           value: "frontend:80"
