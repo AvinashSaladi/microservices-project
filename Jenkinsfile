@@ -9,8 +9,10 @@ pipeline {
         }
         stage('Push'){
             steps{
-                withDockerRegistry(credentialsId: 'docerhub-credentials') {
-                    sh 'docker push avinash1836/microservices:recommendationservice'
+                script{
+                    withDockerRegistry(credentialsId: 'docerhub-credentials') {
+                        sh 'docker push avinash1836/microservices:recommendationservice'
+                    }
                 }
             }
         }
