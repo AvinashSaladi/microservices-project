@@ -2,15 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                sh 'docker build -t avinash1836/microservices:cartservice .'
+                dir('src') {
+                    sh 'docker build -t avinash1836/microservices:cartservice .'
+                }
             }
         }
-        stage('Push'){
-            steps{
-                script{
-                    withDockerRegistry(credentialsId: 'docerhub-credentials') {
+
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    // Use Docker registry with credentials for authentication
+                    withDockerRegistry(credentialsId: 'dockerhub-credentials') {
                         sh 'docker push avinash1836/microservices:cartservice'
                     }
                 }
