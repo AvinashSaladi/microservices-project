@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker build -t avinash1836/microservices:loadgenerator .'
+                sh 'docker build -t avinash1836/microservices:loadgeneratorservice .'
             }
         }
         stage('Push'){
             steps{
                 withDockerRegistry(credentialsId: 'docerhub-credentials') {
-                    sh 'docker push avinash1836/microservices:loadgenerator '
+                    sh 'docker push avinash1836/microservices:loadgeneratorservice'
                 }
             }
         }
