@@ -10,7 +10,7 @@ pipeline {
         stage('Push'){
             steps{
                 withDockerRegistry(credentialsId: 'docerhub-credentials') {
-                    sh 'docker push avinash1836/microservices:productcatalogservice '
+                    sh 'docker push avinash1836/microservices:productcatalogservice'
                 }
             }
         }
