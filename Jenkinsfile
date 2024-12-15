@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker build -t avinash1836/microservices:frontend .'
+                sh 'docker build -t avinash1836/microservices:frontendservice .'
             }
         }
         stage('Push'){
             steps{
                 withDockerRegistry(credentialsId: 'docerhub-credentials') {
-                    sh 'docker push avinash1836/microservices:frontend '
+                    sh 'docker push avinash1836/microservices:frontendservice'
                 }
             }
         }
