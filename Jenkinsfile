@@ -5,7 +5,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 dir('src') {
-                    sh 'docker build -t avinash1836/microservices:cartservice .'
+                    sh 'docker build -t avinash1836/microservices:cartservice:${BUILD_NUMBER} .'
                 }
             }
         }
@@ -15,7 +15,7 @@ pipeline {
                 script {
                     // Use Docker registry with credentials for authentication
                     withDockerRegistry(credentialsId: 'dockerhub-credentials') {
-                        sh 'docker push avinash1836/microservices:cartservice'
+                        sh 'docker push avinash1836/microservices:cartservice:${BUILD_NUMBER}'
                     }
                 }
             }
