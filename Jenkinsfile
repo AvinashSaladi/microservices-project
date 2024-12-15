@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script {
                     // Use Docker registry with credentials for authentication
-                    withDockerRegistry(credentialsId: 'dockerhub-credentials') {
+                    withDockerRegistry(credentialsId: 'docerhub-credentials') {
                         sh 'docker push avinash1836/microservices:cartservice'
                     }
                 }
